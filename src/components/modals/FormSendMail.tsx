@@ -31,9 +31,7 @@ const FormSendMail = ({ onCancel }: Props) => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        console.log(name + value);
         setData({ ...data, [name]: value })
-        console.log(data)
     }
     // const validateInputs = Object.values({ name: '', email: '', subject: '', message: '' }).every(
     //     (value) => value != null && value != ''
@@ -44,13 +42,11 @@ const FormSendMail = ({ onCancel }: Props) => {
         console.log(data)
         const isValid = Object.values(data).every((value) => value != null && value != '');
         if (isValid && form.current) {
-            console.log("Todo OK")
             emailjs
                 .sendForm('service_89xfixe', 'template_lvy3y1c', form.current, {
                     publicKey: 'b6pmdziO3KxT1Nomy',
                 })
                 .then(() => {
-                    console.log("resp");
                     MySwal.fire({
                         icon: "success",
                         title: "Mensaje de prueba",
@@ -61,7 +57,6 @@ const FormSendMail = ({ onCancel }: Props) => {
                     console.log(error);
                 });
         } else {
-            console.log("valida los campos")
             MySwal.fire({
                 icon: 'warning',
                 title: 'Completa todos los campos',

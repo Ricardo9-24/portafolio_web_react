@@ -8,12 +8,10 @@ const DarkMode = () => {
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-        console.log(dark)
     }, [dark])
 
     const changeTheme = () => {
         const newTheme = !dark;
-        console.log(newTheme)
         setDark(newTheme);
         localStorage.setItem("theme", newTheme ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
