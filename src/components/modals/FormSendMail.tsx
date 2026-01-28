@@ -43,7 +43,7 @@ const FormSendMail = ({ onCancel }: Props) => {
         e.preventDefault()
         console.log(data)
         const isValid = Object.values(data).every((value) => value != null && value != '');
-        if (isValid) {
+        if (isValid && form.current) {
             console.log("Todo OK")
             emailjs
                 .sendForm('service_89xfixe', 'template_lvy3y1c', form.current, {
